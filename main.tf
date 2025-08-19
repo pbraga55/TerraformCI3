@@ -29,6 +29,10 @@ resource "azurerm_resource_group" "rg" {
   name     = "TerraformLabRG"
   location = "eastus"
 }
+resource "azurerm_resource_group" "rg2" {
+  name     = "TerraformLabRG2"
+  location = "eastus"
+}
 
 
 #resource "azurerm_storage_account" "storageaccount" {

@@ -29,17 +29,21 @@ resource "azurerm_resource_group" "rg" {
   name     = "TerraformLabRG"
   location = "eastus"
 }
-resource "azurerm_resource_group" "rg2" {
-  name     = "TerraformLabRG2"
-  location = "eastus"
+
+#resource "azurerm_storage_account" "storageaccount" {
+#  name                     = "stg32729832jn23"
+#  resource_group_name      = azurerm_resource_group.rg.name
+#  location                 = azurerm_resource_group.rg.location
+#  account_tier             = "Standard"
+#  account_replication_type = "LRS"
+#}
+
+module "finaltestmodule" {
+  source  = "app.terraform.io/NonationITServices/finaltestmodule/azurerm"
+  version = "1.0.0"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  name                = "pb87sdf89mn83erj"
+  environment          = "DEV"
+  # insert required variables here
 }
-
-
-resource "azurerm_storage_account" "storageaccount" {
-  name                     = "stg32729832jn23"
-  resource_group_name      = azurerm_resource_group.rg.name
-  location                 = azurerm_resource_group.rg.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
